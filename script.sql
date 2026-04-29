@@ -11,7 +11,7 @@ FROM subscription
 WHERE price <= 9.99
 ORDER BY price;
 
--- 3) Select completed payments ordered by payment date
+-- 3) Select completed payments ordered by payment date.
 SELECT *
 FROM payment
 WHERE status = TRUE
