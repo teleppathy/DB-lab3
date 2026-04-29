@@ -1,58 +1,4 @@
--- ================= DELETE =================
-
--- 1) Delete a specific actor by its ID
-SELECT * FROM film_actor
-WHERE film_id = 1 AND actor_id = 1;
-
-DELETE FROM film_actor
-WHERE film_id = 1 AND actor_id = 1; 
-
-SELECT * FROM film_actor
-WHERE film_id = 1 AND actor_id = 1;
-
--- 2) Delete a movie from a specific genre
-SELECT * FROM film_genre
-WHERE film_id = 1 AND genre_id = 1;
-
-DELETE FROM film_genre
-WHERE film_id = 1 AND genre_id = 1; 
-
-SELECT * FROM film_genre
-WHERE film_id = 1 AND genre_id = 1;
-
--- 3) Delete all failed payments made before January 1, 2025
-SELECT * FROM payment
-WHERE status = FALSE AND payment_date < '2025-01-01';
-
-DELETE FROM payment
-WHERE status = FALSE AND payment_date < '2025-01-01';
-
-SELECT * FROM payment
-WHERE status = FALSE AND payment_date < '2025-01-01';
-
-
--- ================= INSERT =================
-
--- 1) Insert a new director
-INSERT INTO director (first_name, last_name, country)
-VALUES ('Steven', 'Spielberg', 'USA');
-
-SELECT * FROM director;
-
--- 2) Insert a new film
-INSERT INTO film (title, release_year, duration, age_restriction, studio_id)
-VALUES ('Interstellar', 2014, 169, '12+', 2);
-
-SELECT * FROM film;
-
--- 3) Insert a new customer
-INSERT INTO customer (first_name, last_name, email, password, registration_date, birth_date, is_deleted)
-VALUES ('Emily', 'Johnson', 'emily.johnson@gmail.com', 'securePass99', '2025-03-10', '2003-11-22', false);
-
-SELECT * FROM customer;
-
-
--- ================= SELECT =================
+-- SELECT
 
 -- 1) Select film ordered by year
 SELECT film_id, title, release_year
@@ -89,7 +35,7 @@ WHERE d.first_name = 'Greta'
   AND d.last_name = 'Gerwig'
 ORDER BY f.release_year ASC;
 
--- 6) Select normal films (16+)
+-- 6) Select normal films
 SELECT title, release_year, age_restriction
 FROM film
 WHERE age_restriction IN ('16+', '18+', '21+')
@@ -101,7 +47,27 @@ FROM film
 ORDER BY release_year DESC
 LIMIT 10;
  
--- ================= UPDATE =================
+-- INSERT
+
+-- 1) Insert a new director
+INSERT INTO director (first_name, last_name, country)
+VALUES ('Steven', 'Spielberg', 'USA');
+
+SELECT * FROM director;
+
+-- 2) Insert a new film
+INSERT INTO film (title, release_year, duration, age_restriction, studio_id)
+VALUES ('Interstellar', 2014, 169, '12+', 2);
+
+SELECT * FROM film;
+
+-- 3) Insert a new customer
+INSERT INTO customer (first_name, last_name, email, password, registration_date, birth_date, is_deleted)
+VALUES ('Emily', 'Johnson', 'emily.johnson@gmail.com', 'securePass99', '2025-03-10', '2003-11-22', false);
+
+SELECT * FROM customer;
+
+-- UPDATE
 
 -- 1) Update age restriction
 SELECT * FROM film
@@ -129,3 +95,35 @@ WHERE customer_id = 8;
 
 SELECT * FROM subscription
 WHERE customer_id = 8;
+
+-- DELETE
+
+-- 1) Delete a specific actor by its ID
+SELECT * FROM film_actor
+WHERE film_id = 1 AND actor_id = 1;
+
+DELETE FROM film_actor
+WHERE film_id = 1 AND actor_id = 1; 
+
+SELECT * FROM film_actor
+WHERE film_id = 1 AND actor_id = 1;
+
+-- 2) Delete a movie from a specific genre
+SELECT * FROM film_genre
+WHERE film_id = 1 AND genre_id = 1;
+
+DELETE FROM film_genre
+WHERE film_id = 1 AND genre_id = 1; 
+
+SELECT * FROM film_genre
+WHERE film_id = 1 AND genre_id = 1;
+
+-- 3) Delete all failed payments made before January 1, 2025
+SELECT * FROM payment
+WHERE status = FALSE AND payment_date < '2025-01-01';
+
+DELETE FROM payment
+WHERE status = FALSE AND payment_date < '2025-01-01';
+
+SELECT * FROM payment
+WHERE status = FALSE AND payment_date < '2025-01-01';
