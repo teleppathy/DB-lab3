@@ -71,14 +71,14 @@ SELECT * FROM customer;
 
 -- 1) Update age restriction
 SELECT * FROM film
-WHERE title = 'Inception';
+WHERE title = 'Dune';
 
 UPDATE film
 SET age_restriction = '16+'
-WHERE title = 'Inception';
+WHERE title = 'Dune';
 
 SELECT * FROM film
-WHERE title = 'Inception';
+WHERE title = 'Dune';
 
 -- 2) Change user email
 SELECT * FROM customer WHERE first_name = 'Belly' AND last_name = 'Pible';
